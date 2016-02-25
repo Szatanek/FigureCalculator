@@ -53,6 +53,15 @@
             this.LabelC = new System.Windows.Forms.Label();
             this.LabelB = new System.Windows.Forms.Label();
             this.LabelA = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BrowseBtn = new System.Windows.Forms.Button();
+            this.SelectedFileName = new System.Windows.Forms.TextBox();
+            this.SelectedFilePath = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BrowseFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.PerimeterValue = new System.Windows.Forms.Label();
+            this.PerimeterLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.FigureParamsContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RadiusVal)).BeginInit();
@@ -61,14 +70,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.SideCVal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBVal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideAVal)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // CalculateBtn
             // 
             this.CalculateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CalculateBtn.Location = new System.Drawing.Point(342, 458);
+            this.CalculateBtn.Location = new System.Drawing.Point(460, 201);
             this.CalculateBtn.Name = "CalculateBtn";
-            this.CalculateBtn.Size = new System.Drawing.Size(202, 23);
+            this.CalculateBtn.Size = new System.Drawing.Size(105, 23);
             this.CalculateBtn.TabIndex = 0;
             this.CalculateBtn.Text = "Calculate";
             this.CalculateBtn.UseVisualStyleBackColor = true;
@@ -77,12 +87,13 @@
             // ExportBtn
             // 
             this.ExportBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExportBtn.Location = new System.Drawing.Point(143, 458);
+            this.ExportBtn.Location = new System.Drawing.Point(460, 89);
             this.ExportBtn.Name = "ExportBtn";
-            this.ExportBtn.Size = new System.Drawing.Size(179, 23);
+            this.ExportBtn.Size = new System.Drawing.Size(105, 23);
             this.ExportBtn.TabIndex = 1;
             this.ExportBtn.Text = "Export";
             this.ExportBtn.UseVisualStyleBackColor = true;
+            this.ExportBtn.Click += new System.EventHandler(this.ExportClicked);
             // 
             // groupBox1
             // 
@@ -157,9 +168,12 @@
             // 
             // FigureParamsContainer
             // 
+            this.FigureParamsContainer.Controls.Add(this.PerimeterValue);
+            this.FigureParamsContainer.Controls.Add(this.PerimeterLabel);
             this.FigureParamsContainer.Controls.Add(this.VolumeValue);
             this.FigureParamsContainer.Controls.Add(this.AreaValue);
             this.FigureParamsContainer.Controls.Add(this.VolumeLabel);
+            this.FigureParamsContainer.Controls.Add(this.CalculateBtn);
             this.FigureParamsContainer.Controls.Add(this.AreaLabel);
             this.FigureParamsContainer.Controls.Add(this.RadiusVal);
             this.FigureParamsContainer.Controls.Add(this.LabelR);
@@ -229,21 +243,23 @@
             // 
             // RadiusVal
             // 
-            this.RadiusVal.Location = new System.Drawing.Point(460, 44);
+            this.RadiusVal.Location = new System.Drawing.Point(86, 44);
             this.RadiusVal.Margin = new System.Windows.Forms.Padding(10, 3, 20, 3);
             this.RadiusVal.Name = "RadiusVal";
             this.RadiusVal.Size = new System.Drawing.Size(84, 20);
             this.RadiusVal.TabIndex = 19;
+            this.RadiusVal.Visible = false;
             // 
             // LabelR
             // 
             this.LabelR.AutoSize = true;
-            this.LabelR.Location = new System.Drawing.Point(427, 46);
+            this.LabelR.Location = new System.Drawing.Point(56, 46);
             this.LabelR.Margin = new System.Windows.Forms.Padding(50, 30, 10, 0);
             this.LabelR.Name = "LabelR";
             this.LabelR.Size = new System.Drawing.Size(10, 13);
             this.LabelR.TabIndex = 18;
             this.LabelR.Text = "r";
+            this.LabelR.Visible = false;
             // 
             // HeightVal
             // 
@@ -335,15 +351,102 @@
             this.LabelA.TabIndex = 8;
             this.LabelA.Text = "a";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BrowseBtn);
+            this.groupBox2.Controls.Add(this.SelectedFileName);
+            this.groupBox2.Controls.Add(this.SelectedFilePath);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.ExportBtn);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(4, 371);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(571, 118);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Export";
+            // 
+            // BrowseBtn
+            // 
+            this.BrowseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BrowseBtn.Location = new System.Drawing.Point(392, 29);
+            this.BrowseBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.BrowseBtn.Name = "BrowseBtn";
+            this.BrowseBtn.Size = new System.Drawing.Size(26, 22);
+            this.BrowseBtn.TabIndex = 24;
+            this.BrowseBtn.Text = "...";
+            this.BrowseBtn.UseVisualStyleBackColor = true;
+            this.BrowseBtn.Click += new System.EventHandler(this.SelectPathClicked);
+            // 
+            // SelectedFileName
+            // 
+            this.SelectedFileName.Location = new System.Drawing.Point(171, 68);
+            this.SelectedFileName.Name = "SelectedFileName";
+            this.SelectedFileName.Size = new System.Drawing.Size(247, 20);
+            this.SelectedFileName.TabIndex = 11;
+            this.SelectedFileName.Leave += new System.EventHandler(this.SelectedPathChanged);
+            // 
+            // SelectedFilePath
+            // 
+            this.SelectedFilePath.Location = new System.Drawing.Point(171, 30);
+            this.SelectedFilePath.Name = "SelectedFilePath";
+            this.SelectedFilePath.Size = new System.Drawing.Size(222, 20);
+            this.SelectedFilePath.TabIndex = 10;
+            this.SelectedFilePath.Click += new System.EventHandler(this.SelectPathClicked);
+            this.SelectedFilePath.TextChanged += new System.EventHandler(this.SelectedPathChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 71);
+            this.label4.Margin = new System.Windows.Forms.Padding(50, 30, 10, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "File name: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(50, 33);
+            this.label3.Margin = new System.Windows.Forms.Padding(50, 30, 10, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Select directory: ";
+            // 
+            // PerimeterValue
+            // 
+            this.PerimeterValue.AutoSize = true;
+            this.PerimeterValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PerimeterValue.ForeColor = System.Drawing.Color.OliveDrab;
+            this.PerimeterValue.Location = new System.Drawing.Point(350, 147);
+            this.PerimeterValue.Margin = new System.Windows.Forms.Padding(20, 30, 10, 0);
+            this.PerimeterValue.Name = "PerimeterValue";
+            this.PerimeterValue.Size = new System.Drawing.Size(19, 20);
+            this.PerimeterValue.TabIndex = 25;
+            this.PerimeterValue.Text = "0";
+            // 
+            // PerimeterLabel
+            // 
+            this.PerimeterLabel.AutoSize = true;
+            this.PerimeterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.PerimeterLabel.Location = new System.Drawing.Point(269, 147);
+            this.PerimeterLabel.Margin = new System.Windows.Forms.Padding(50, 30, 10, 0);
+            this.PerimeterLabel.Name = "PerimeterLabel";
+            this.PerimeterLabel.Size = new System.Drawing.Size(85, 20);
+            this.PerimeterLabel.TabIndex = 24;
+            this.PerimeterLabel.Text = "Perimeter: ";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 497);
+            this.ClientSize = new System.Drawing.Size(579, 495);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.FigureParamsContainer);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.ExportBtn);
-            this.Controls.Add(this.CalculateBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -362,6 +465,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.SideCVal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideBVal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SideAVal)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -393,6 +498,15 @@
         private System.Windows.Forms.Label AreaValue;
         private System.Windows.Forms.Label VolumeLabel;
         private System.Windows.Forms.Label AreaLabel;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button BrowseBtn;
+        private System.Windows.Forms.TextBox SelectedFileName;
+        private System.Windows.Forms.TextBox SelectedFilePath;
+        private System.Windows.Forms.FolderBrowserDialog BrowseFolderDialog;
+        private System.Windows.Forms.Label PerimeterValue;
+        private System.Windows.Forms.Label PerimeterLabel;
     }
 }
 

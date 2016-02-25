@@ -11,5 +11,6 @@ namespace Figures.Factory
         int Radius { get; }
 
         Figure2DType Figure2D { get; }
+        Figure3DType Figure3D { get; }
     }
 }

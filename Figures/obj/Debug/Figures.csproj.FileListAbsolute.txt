@@ -1,0 +1,9 @@
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\bin\Debug\Figures.exe.config
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\obj\Debug\Figures.exe
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\obj\Debug\Figures.pdb
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\obj\Debug\Figures.csprojResolveAssemblyReference.cache
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\obj\Debug\Figures.Properties.Resources.resources
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\obj\Debug\Figures.View.Main.resources
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\obj\Debug\Figures.csproj.GenerateResource.Cache
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\bin\Debug\Figures.exe
+C:\Users\Milosz\Documents\Visual Studio 2013\Projects\Figures\Figures\bin\Debug\Figures.pdb

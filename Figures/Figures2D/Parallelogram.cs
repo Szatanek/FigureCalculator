@@ -2,7 +2,7 @@
 
 namespace Figures.Figures2D
 {
-    public class Parallelogram : BaseFigure
+    public class Parallelogram : BaseFigure2D
     {
         private readonly int _sideA;
         private readonly int _height;
@@ -15,6 +15,11 @@ namespace Figures.Figures2D
             _height = height;
         }
 
+        protected override string FigureName
+        {
+            get { return "Parallelogram"; }
+        }
+
         public override int GetPerimeter()
         {
             return 2 * (_sideA + _sideB);
@@ -23,6 +28,11 @@ namespace Figures.Figures2D
         public override int GetArea()
         {
             return _sideA * _height;
+        }
+
+        public override string GetFigureInfo()
+        {
+            return string.Format("{0}\t\ta: {1}\th: {2}\t\tArea:{3}", FigureName, _sideA, _height, GetArea());
         }
     }
 }

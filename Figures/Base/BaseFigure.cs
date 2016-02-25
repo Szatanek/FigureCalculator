@@ -3,7 +3,8 @@ namespace Figures.Base
 {
     public abstract class BaseFigure
     {
-        public abstract int GetPerimeter();
+        protected abstract string FigureName { get; }
         public abstract int GetArea();
+        public abstract string GetFigureInfo();
     }
 }

@@ -44,8 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseFigure3D.cs" />
+    <Compile Include="Base\BaseFigure2D.cs" />
     <Compile Include="Base\BaseFigure.cs" />
     <Compile Include="Factory\AbstractFactory.cs" />
+    <Compile Include="Factory\Figure3DFactory.cs" />
     <Compile Include="Factory\Figure2DFactory.cs" />
     <Compile Include="Factory\Figure3DType.cs" />
     <Compile Include="Factory\Figure2DType.cs" />
@@ -56,6 +59,9 @@
     <Compile Include="Figures2D\Trapeze.cs" />
     <Compile Include="Figures2D\Parallelogram.cs" />
     <Compile Include="Figures2D\Triangle.cs" />
+    <Compile Include="Figures3D\Sphere.cs" />
+    <Compile Include="Figures3D\Cube.cs" />
+    <Compile Include="FileRepository\FileWriter.cs" />
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +95,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Figures3D\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
